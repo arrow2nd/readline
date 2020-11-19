@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"unicode"
 	"unicode/utf8"
+
+	"github.com/mattn/go-runewidth"
 )
 
 var runes = Runes{}
@@ -150,10 +152,7 @@ func (Runes) Width(r rune) int {
 	if unicode.IsOneOf(zeroWidth, r) {
 		return 0
 	}
-	if unicode.IsOneOf(doubleWidth, r) {
-		return 2
-	}
-	return 1
+	return runewidth.RuneWidth(r)
 }
 
 func (Runes) WidthAll(r []rune) (length int) {
