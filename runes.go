@@ -138,13 +138,6 @@ var zeroWidth = []*unicode.RangeTable{
 	unicode.Cf,
 }
 
-var doubleWidth = []*unicode.RangeTable{
-	unicode.Han,
-	unicode.Hangul,
-	unicode.Hiragana,
-	unicode.Katakana,
-}
-
 func (Runes) Width(r rune) int {
 	if r == '\t' {
 		return TabWidth
